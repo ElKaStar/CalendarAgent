@@ -1,7 +1,7 @@
 """
 Модуль для распознавания речи через локальную модель Whisper.
 
-Использует модель 'base' для распознавания голосовых сообщений.
+Использует модель 'small' для распознавания голосовых сообщений.
 Модель загружается один раз при первом использовании и кэшируется.
 """
 import os
@@ -15,13 +15,13 @@ from typing import Optional
 _whisper_model = None
 
 
-def get_whisper_model(model_name: str = "base"):
+def get_whisper_model(model_name: str = "small"):
     """
     Загружает модель Whisper один раз и кэширует её.
     
     Args:
         model_name: Название модели ('tiny', 'base', 'small', 'medium', 'large')
-                   По умолчанию 'base' - оптимальный баланс скорости и качества
+                   По умолчанию 'small' - хороший баланс скорости и качества
     
     Returns:
         whisper.Model: Загруженная модель Whisper
@@ -136,7 +136,7 @@ def convert_audio_to_wav(input_path: str, output_path: Optional[str] = None) -> 
         raise RuntimeError(error_msg)
 
 
-def transcribe_audio(file_path: str, model_name: str = "base", initial_prompt: Optional[str] = None) -> str:
+def transcribe_audio(file_path: str, model_name: str = "small", initial_prompt: Optional[str] = None) -> str:
     """
     Принимает путь к аудиофайлу, прогоняет его через модель Whisper
     и возвращает распознанный текст.
@@ -144,7 +144,7 @@ def transcribe_audio(file_path: str, model_name: str = "base", initial_prompt: O
     Args:
         file_path: Путь к аудиофайлу (поддерживаются различные форматы, но рекомендуется WAV)
         model_name: Название модели ('tiny', 'base', 'small', 'medium', 'large')
-                   По умолчанию 'base'
+                   По умолчанию 'small'
         initial_prompt: Начальный промпт для улучшения распознавания (опционально)
                        Помогает модели лучше распознавать специфические слова
         

@@ -118,7 +118,7 @@ def load_config() -> Config:
         stt_provider=os.getenv('STT_PROVIDER', 'whisper'),  # По умолчанию whisper
         stt_api_key=os.getenv('STT_API_KEY'),
         stt_folder_id=os.getenv('STT_FOLDER_ID'),
-        whisper_model=os.getenv('WHISPER_MODEL', 'base'),  # По умолчанию 'base'
+        whisper_model=os.getenv('WHISPER_MODEL', 'small'),  # По умолчанию 'small'
         google_credentials_file=os.getenv('GOOGLE_CREDENTIALS_FILE'),
         google_calendar_id=os.getenv('GOOGLE_CALENDAR_ID', 'primary'),
         timezone=os.getenv('TIMEZONE', 'Europe/Moscow'),
